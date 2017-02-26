@@ -16,5 +16,14 @@
     "json"
   ],
   "author": "gpestana",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "data.maybe": "^1.2.2",
+    "nock": "^9.0.7",
+    "tap": "^10.2.1"
+  },
+  "dependencies": {
+    "ramda": "^0.23.0",
+    "request": "^2.79.0"
+  }
 }

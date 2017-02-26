@@ -17,12 +17,12 @@
 
 ### API
 
-#### get(accountId, objectId)
+#### get(databaseId, documentId)
 
 ```javascript
 const muffler = require('muffler');
 
-muffler.get('userAccount', '274bff0b1fb7a8f1f130cf1de266d111', (err, res) => {
+muffler.get('274bff0b1fb7a8f1f130cf1de266d111', 'document.json', (err, res) => {
   if(err) return console.log(err);
   console.log(res);
 }); 
