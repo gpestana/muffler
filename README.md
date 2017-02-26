@@ -1,6 +1,9 @@
 # Muffler.js
 
-### What: JSON objects storage for fast prototyping. Sitting on top of Github's gist.
+#### JSON objects storage for fast prototyping. Sitting on top of Github's gist.
+
+![muffler](https://raw.githubusercontent.com/gpestana/muffler/master/muffler.png)
+
 
 ### Features
 - JSON objects storage
