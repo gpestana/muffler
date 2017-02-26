@@ -1,0 +1,20 @@
+{
+  "name": "muffler",
+  "version": "1.0.0",
+  "description": "JSON objects storage for fast prototyping. Sitting on top of Github's gist",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "keywords": [
+    "gist",
+    "database",
+    "prototyping",
+    "json"
+  ],
+  "author": "gpestana",
+  "license": "MIT"
+}
