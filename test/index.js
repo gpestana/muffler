@@ -1,22 +1,33 @@
-const t = require('node-tap');
-const muffler = require('../index.js');
-const nock = require('nock');
+const tap = require('tap');
+const muffler = require('../index');
+const mocks = require('./mocks');
 
-const gist = nock('https://api.github.com')
-  .get('/gist/idrequst1')
-  .reply(200, {
-    files: {
-      "document.json": {
-        "filename": "document.json",
-        "type": "application/json",
-        "language": "JSON",
-        "content": "{\"hello\": \"world\"}"
-      }
-    }
+
+tap.test('gets existing object', t => {
+  muffler.get('database1', 'document1.json', (err, res) => {
+    t.equal(typeof res, 'object', 'response should be an object');
+    t.equal(res.hello, 'world', 'result should be correct')
+    t.notOk(err, 'err should be null');
+    t.end(); 
   });
-
-t.test('creates new object', t => {
-  const databse = "dbId";
-
-
 });
+
+tap.test('gets non existing object', t => {
+  muffler.get('database1', 'doesntExistDoc.json', (err, res) => {
+    t.equal(typeof err, 'string', 'err should be a string');
+    t.equal(err, 'doesntExistDoc.json not found', 'err msg should be correct')
+    t.notOk(res, 'res should be null');
+    t.end(); 
+  });
+});
+
+tap.test('gets from non existing database', t => {
+  muffler.get('doentExistDb', 'doc.json', (err, res) => {
+    t.equal(typeof err, 'string', 'err should be a string');
+    t.equal(err, '404', 'err should be 404')
+    t.notOk(res, 'res should be null');
+    t.end(); 
+  });
+});
+
+

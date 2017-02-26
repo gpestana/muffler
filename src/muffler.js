@@ -17,6 +17,6 @@ module.exports.get = (databaseId, documentId, cb) => {
       .map(d => d ? d : {}).getOrElse({});
     if(_.isEmpty(doc)) return cb(`${documentId} not found`, null);
     if(doc.language != 'JSON') return cb(`${documentId} is not JSON`, null);
-    return cb(null, _.pick(['content'], doc));
+    return cb(null, JSON.parse(utils.safePath(['content'], doc).getOrElse({})));
   });
 };
