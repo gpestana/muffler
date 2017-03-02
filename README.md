@@ -29,7 +29,21 @@ in production.
 
 ### API
 
-#### createDocument(databaseId, documentId, document)
+#### databaseIndex(databaseId, cb)
+Lists all documents in a database
+
+```javascript
+const muffler = require('muffler');
+
+muffler.databaseIndex(
+  'databaseId', (err, res) => {
+    if(err) return console.log(err);
+    console.log(res);
+});
+```
+
+#### create(databaseId, newDoc, authToken, cb)
+Creates a document in a database
 
 ```javascript
 const muffler = require('muffler');
@@ -44,7 +58,8 @@ muffler.update(
 });
 ```
 
-#### get(databaseId, documentId)
+#### get(databaseId, documentId, cb)
+Gets a document from database
 
 ```javascript
 const muffler = require('muffler');
@@ -55,7 +70,8 @@ muffler.get('274bff0b1fb7a8f1f130cf1de266d111', 'document.json', (err, res) => {
 }); 
 ```
 
-#### update(accountId, objectId, contents, authToken)
+#### update(accountId, objectId, contents, authToken, cb)
+Updates a document from a database. If the document does not exist, created it.
 
 ```javascript
 const muffler = require('muffler');
@@ -71,6 +87,7 @@ muffler.update(
 ```
 
 #### delete(accountId, objectId, authToken)
+Deletes a document from a database
 
 ```javascript
 const muffler = require('muffler');
