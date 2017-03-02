@@ -1,6 +1,8 @@
 const nock = require('nock');
 
-const getOk = nock('https://api.github.com')
+const BASE_URL = 'https://api.github.com';
+
+const getOk = nock(BASE_URL)
   .persist()
   .get('/gists/database1')
   .reply(200, {
@@ -14,7 +16,11 @@ const getOk = nock('https://api.github.com')
     }
   });
 
-const getDbNotFound = nock('https://api.github.com')
+const getDbNotFound = nock(BASE_URL)
   .get('/gists/doentExistDb')
   .reply(404)
+
+const updateOk = nock(BASE_URL)
+  .get('/gists/database2')
+  .reply(200, { 'updated': 'object' });
 

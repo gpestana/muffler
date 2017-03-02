@@ -30,4 +30,15 @@ tap.test('gets from non existing database', t => {
   });
 });
 
+tap.test('updates object', t => {
+  const newContent = { 'updated': 'object' };
+  muffler.update('database2', 'existingDoc.json', newContent, (err, res) => {
+    t.equal(typeof res, 'object', 'res should be an object');
+    t.equal(res.updated, 'object', 
+      'when updated successfully, res is new content');
+    t.notOk(err, 'err should be null');
+    t.end();
+  });
+});
+
 

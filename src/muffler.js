@@ -20,3 +20,14 @@ module.exports.get = (databaseId, documentId, cb) => {
     return cb(null, JSON.parse(utils.safePath(['content'], doc).getOrElse({})));
   });
 };
+
+module.exports.update = (databaseId, documentId, newContent, cb) => {
+   const requestOpts = { 
+    url: `${GIST_ENDPOINT}/${databaseId}`, 
+    headers: { 'User-Agent': 'muffler' }
+  };
+  request(requestOpts, (err, res, rawBody) => { 
+    console.log(rawBody);  
+    return cb(null, rawBody) 
+  });
+};
