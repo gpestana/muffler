@@ -1,6 +1,6 @@
 {
   "name": "muffler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JSON objects storage for fast prototyping. Sitting on top of Github's gist",
   "main": "index.js",
   "directories": {
@@ -23,6 +23,7 @@
     "tap": "^10.2.1"
   },
   "dependencies": {
+    "data.maybe": "^1.2.2",
     "ramda": "^0.23.0",
     "request": "^2.79.0",
     "validator": "^7.0.0"
