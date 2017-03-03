@@ -15,7 +15,6 @@ publicly available.
 If the data storage requirements are loose enough, Muffler.js can be also used
 in production.
 
-
 ### Features
 - JSON objects storage
 - No backend required
@@ -26,6 +25,12 @@ in production.
   - `update()`
   - `delete()`
 - Backend and frontend integration
+
+
+### Get it running
+```
+npm install muffler
+```
 
 ### API
 
