@@ -23,6 +23,7 @@
     "tap": "^10.2.1"
   },
   "dependencies": {
+    "data.maybe": "^1.2.2",
     "ramda": "^0.23.0",
     "request": "^2.79.0",
     "validator": "^7.0.0"
