@@ -39,7 +39,7 @@ module.exports.get = (databaseId, documentId, cb) => {
 
 module.exports.delete = (databaseId, documentId, authToken, cb) => {
   const body = JSON.stringify(
-      {files: _.assoc(documentId, { content: null }, {})});
+      {files: { [documentId]: null}});
   const requestOpts = { 
     url: `${GIST_ENDPOINT}/${databaseId}`, 
     headers: { 
@@ -50,6 +50,7 @@ module.exports.delete = (databaseId, documentId, authToken, cb) => {
     form: body 
   };
   request(requestOpts, (err, res, rawBody) => {
+    if(res.statusCode == 422) return cb('Database does not exist', null);
     if(res.statusCode != 204) return cb(`${res.statusCode}`, null);
     return cb(null, '204'); 
   });
